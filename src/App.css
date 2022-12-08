@@ -1,3 +1,164 @@
 body {
   background-color: black;
 }
+
+
+/* NavBar */
+
+.header {
+  display: flex;
+  justify-content: space-around;
+}
+
+.navbar {
+  justify-items: end;
+  padding-top: 50px;
+}
+
+.navbar ul li {
+  display: inline-flex;
+  padding: 25px;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 1.1rem;
+  text-transform: uppercase;
+  cursor: pointer;
+}
+
+.navbar a {
+  text-decoration: none;
+  color: #EE4FA4;
+}
+
+.navbar a:hover {
+  box-shadow: 0px 5px 3px -2px white;
+  color: #EE4FA4;
+  transform: translateY(-5px);
+}
+
+.logo img {
+  padding-left: 10%;
+  width: 60%;
+}
+
+
+/* Welcome */
+
+.welcome {
+  display: flex;
+  color: white;
+  align-items: center;
+  justify-content: center;
+  gap: 1%;
+}
+
+.welcome p {
+  color: #EE4FA4;
+}
+
+/* BagWidget */
+
+.bagButton {
+  display: flex;
+  background-color: black;
+  align-items: center;
+  cursor: pointer;
+  border: none;
+}
+
+.bagButton .shoppingBag img {
+  width: 50px;
+}
+
+.bagCounter {
+  font-family: Arial, Helvetica, sans-serif;
+  color: white;
+  font-size: 1.1rem;
+}
+
+
+/* Items */
+
+.listProducts {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.listProducts .product {
+  width: 30%;
+  text-align: center;
+  font-size: 1rem;
+  color: white;
+  padding: 1%;
+}
+
+.listProducts .product img {
+  width: 75%;
+  height: 50%;
+  object-fit: cover;
+}
+
+.listProducts .product .productStock .counterProduct {
+  display: flex;
+  justify-content: center;
+  gap: 10%;
+}
+
+.listProducts .product button {
+  background-color: #EE4FA4;
+  width: 80%;
+  font-size: 1rem;
+  text-transform: uppercase;
+  padding: 10px;
+  margin: 5px;
+  cursor: pointer;
+}
+
+.listProducts .product .productStock .counterProduct button {
+  background-color: #EE4FA4;
+  width: 7%;
+  font-size: 1rem;
+}
+
+
+/* Error Msg */
+.errorMsg {
+  color: white;
+  text-align: center;
+}
+
+/* Contacto */
+
+.contacto {
+  display: flex;
+  color: white;
+  align-items: center;
+  justify-content: center;
+  gap: 1%;
+}
+
+/* Footer */
+
+.footer {
+  position: relative;
+  bottom: 0;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  gap: 50px;
+  align-items: center;
+
+}
+
+.footer .icons a svg {
+  display: inline-flex;
+  margin-bottom: 50%;
+  margin-top: 50%;
+  padding: 5px;
+}
+
+.footer .textContent p {
+  font-size: 1rem;
+  color: white;
+  margin: 5px;
+}

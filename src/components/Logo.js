@@ -1,10 +1,9 @@
 import React from "react";
-import logo from "../Imagenes/sorella-logo.gif";
 
 const Logo = () => {
     return (
         <div className="logo">
-            <img src={(logo)} alt="logo"/>
+            <img src={process.env.PUBLIC_URL + '/Imagenes/sorella-logo.gif'} alt="logo" />
         </div>
     );
 } 

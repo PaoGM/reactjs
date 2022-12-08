@@ -1,13 +1,12 @@
 import React from "react";
-import bag from '../Imagenes/shopping-bag.gif'
-import './BagWidget.css' 
+import '../App.css'
 
 const BagWidget = () => {
     return (
         <div>
             <button className="bagButton">
                 <i className="shoppingBag">
-                    <img src={(bag)} alt="bag" />
+                    <img src={process.env.PUBLIC_URL + '/Imagenes/shopping-bag.gif'} alt="bag" />
                 </i>
                 <div className="bagCounter">0</div>
             </button>
