@@ -13,7 +13,7 @@ const Item = ({ data }) => {
             <h2>{nombre}</h2>
             <span>$ARS {precio}</span>
             <Counter/>
-            <Link to="/productos/:id"><button className="button-info">Mas info</button></Link>
+            <Link to={`/productos/${data.id}`}><button className="button-info">Mas info</button></Link>
         </div>
     )
 }

@@ -120,6 +120,43 @@ body {
   font-size: 1rem;
 }
 
+/* Items Vista Detallada */
+.productDetailContainer {
+  display: flex;
+  justify-content: center;
+}
+.productDetail {
+  width: 30%;
+  text-align: center;
+  font-size: 1rem;
+  color: white;
+  padding: 1%;
+}
+
+.productDetail .shoe {
+  width: 75%;
+  height: 50%;
+  object-fit: cover;
+}
+.productDetail button {
+  background-color: #EE4FA4;
+  width: 80%;
+  font-size: 1rem;
+  text-transform: uppercase;
+  padding: 10px;
+  margin: 5px;
+  cursor: pointer;
+}
+.productDetail .productStock .counterProduct {
+  display: flex;
+  justify-content: center;
+  gap: 10%;
+}
+.productDetail .productStock .counterProduct button {
+  background-color: #EE4FA4;
+  width: 7%;
+  font-size: 1rem;
+}
 
 /* Error Msg */
 .errorMsg {

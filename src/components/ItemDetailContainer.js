@@ -1,4 +1,3 @@
-
 import React from "react";
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
@@ -8,21 +7,19 @@ import ItemDetail from "./ItemDetail"
 
 const ItemDetailContainer = () => {
 
-    const [item, setItem] = useState([]);
+    const [item, setItem] = useState({});
 
     const { id } = useParams();
     
     useEffect(() => {
 
-        const filterById = products.filter((products) => products.id === id)
+        const filterById = products.find((products) => products.id === parseInt(id))
 
-        const getItem = new Promise( (resolve, reject) => {
+        const getItem = new Promise( (resolve) => {
             setTimeout( () => {
-                id ? resolve(filterById) : resolve(products)
+                 resolve(filterById) 
             }, 1000)    
         })
-
-
         getItem
             .then( (res) => { 
                 setItem(res);
@@ -34,7 +31,7 @@ const ItemDetailContainer = () => {
 
     return(
         <>
-            <ItemDetail item={item}/>
+            <ItemDetail data={item}/>
         </>
     )
 }   
