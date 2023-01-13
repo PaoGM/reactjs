@@ -30,7 +30,7 @@ const ItemListContainer = () => {
             setListProducts(itemList);
         })
     }, [categoryId]);
-    
+console.log(listProducts)
     
     return(
         <div className='list-products'>
