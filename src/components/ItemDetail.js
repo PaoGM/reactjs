@@ -3,7 +3,8 @@ import '../App.css';
 import '../stock/stock'
 import Counter from './ItemCount'
 import { BagContext } from "../context/BagContext";
-
+import { useContext, useState } from 'react';
+import { Link } from 'react-router-dom';
 const ItemDetail = ({item}) => {
     
     const {title, price, image, description} = item;
