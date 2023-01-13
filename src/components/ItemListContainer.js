@@ -2,40 +2,42 @@ import React from "react";
 import "../App.css"
 import { useEffect, useState } from 'react';
 import { useParams } from "react-router-dom";
+import { collection, getDocs, query, where } from "../firebase/firebase";
 import ItemList from './ItemList';
-import products from '../stock/stock';
+import stock from "./../firebase/firebase";
 
 
 
 const ItemListContainer = () => {
 
     const [listProducts, setListProducts] = useState([]);
+
+
     const { categoryId } = useParams();
 
-    useEffect(() => {
-
-        const getProducts = new Promise((resolve, reject) => {
-
-            setTimeout(() => {
-                resolve(products)
-            }, 1000)
-
+    
+    useEffect( () => {
+        const productsCollection = collection(stock, 'products');
+        const categoryQuery = categoryId && query(productsCollection, where("category", "==", categoryId));
+         
+        getDocs(categoryId ? categoryQuery : productsCollection)
+        .then( result => {
+            const itemList = result.docs.map( item => {
+                return {
+                    id: item.id,
+                    ...item.data()
+                }
+            })
+            setListProducts(itemList);
         })
-
-        getProducts
-            .then((res) => {
-                setListProducts(res)
-            })
-            .catch(() => {
-                console.log("Error")
-            })
-    }, [categoryId])
-
-
-    return (
-        <div className='listProducts'>
-            <ItemList dataProducts={listProducts} />
+    }, [categoryId]);
+    
+    
+    return(
+        <div className='list-products'>
+            <ItemList dataProducts={listProducts}/>
         </div>
     )
 }
-export default ItemListContainer; 
+
+export default ItemListContainer

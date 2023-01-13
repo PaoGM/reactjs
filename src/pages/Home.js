@@ -1,12 +1,12 @@
 import React from "react";
-
+import FavoriteIcon from '@mui/icons-material/Favorite';
 
 const Home = () => {
     return (
         <div className="welcome">
-            <p>❤</p>
+            <FavoriteIcon />
             <h1>Bienvenidos a Sorella Calzados</h1>
-            <p>❤</p>
+            <FavoriteIcon />
         </div>
     )
 }

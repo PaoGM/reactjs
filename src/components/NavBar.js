@@ -1,11 +1,14 @@
-import React from "react";
+import React, { useContext } from "react";
 import "../App.css";
 import BagWidget from "./BagWidget";
 import Logo from "./Logo";
 import { Link } from 'react-router-dom';
+import { BagContext } from "../context/BagContext";
 
+function NavBar () {
 
-const NavBar = () => {
+    const { products } = useContext(BagContext);
+
     return (
         <div className="header">
             <div className="logo">
@@ -16,7 +19,7 @@ const NavBar = () => {
                     <li><Link to="/">Home</Link></li>
                     <li><Link to="/productos">Productos</Link></li>
                     <li><Link to="/contacto">Contacto</Link></li>
-                    <li><Link to="/bag"><BagWidget /></Link></li>
+                    <li><Link to="/bag"><BagWidget products={products}/></Link></li>
                 </ul>
             </div>
         </div>

@@ -2,20 +2,42 @@ import React from "react";
 import '../App.css';
 import '../stock/stock'
 import Counter from './ItemCount'
+import { BagContext } from "../context/BagContext";
 
-const ItemDetail = ({ data }) => {
-    const {nombre, img, precio, color, talle} = data;
+const ItemDetail = ({item}) => {
+    
+    const {title, price, image, description} = item;
+
+    const { addProductToCart } = useContext(BagContext)
+
+    const [quantitySelected, setQuantitySelected] = useState(false)
+
+    const itemsAdded = (count) => {
+        addProductToCart({...item, quantity: count});
+        setQuantitySelected(true);
+    }
+
 
     return (
-        <div className="productDetail">
-            <img src={img} className="shoe" alt="img product" />
-            <h2>{nombre}</h2>
-            <h3>{color}</h3>
-            <h3>{talle}</h3>
-            <span>$ARS {precio}</span>
-            <Counter/>
+        <div className="itemDetail">
+            <div>
+                <img src={`/Imagenes/${image}`} className="cover" alt="loading..." />
+            </div>
+
+            <div className="details">
+                <h2>{title}</h2>
+                <p className="description">{description}</p>
+                <span>Precio: {price} $ ARS</span>
+                {
+                    !quantitySelected ? <Counter onAdd={itemsAdded} stock={10} productData={item}/> : <Link to="/bag"><button className="botonCompra"></button></Link>
+                }
+            </div>
+            
         </div>
-    )
+    );
+
+
+
 }
 
 export default ItemDetail;

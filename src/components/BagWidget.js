@@ -1,18 +1,20 @@
 import React from "react";
 import '../App.css'
+import ShoppingCartOutlinedIcon from '@mui/icons-material/ShoppingCartOutlined';
+import { useContext } from 'react';
+import { BagContext } from '../context/BagContext';
 
-const BagWidget = () => {
+const BagWidget = ({ products }) => {
+
+    const { productsQuantity } = useContext(BagContext)
+
     return (
-        <div>
-            <button className="bagButton">
-                <i className="shoppingBag">
-                    <img src={process.env.PUBLIC_URL + '/Imagenes/shopping-bag.gif'} alt="bag" />
-                </i>
-                <div className="bagCounter">0</div>
-            </button>
-        </div>
-    );
-}
+        <>
+            <ShoppingCartOutlinedIcon style={{ fill: "#EE4FA4" }} />
+            {products.length !== 0 && <span> {productsQuantity} </span>}
+        </>
 
+    )
+}
 
 export default BagWidget;
