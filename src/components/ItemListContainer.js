@@ -2,10 +2,9 @@ import React from "react";
 import "../App.css"
 import { useEffect, useState } from 'react';
 import { useParams } from "react-router-dom";
-import { collection, getDocs, query, where } from "../firebase/firebase";
+import { collection, getDocs, query, where } from "firebase/firebase";
 import ItemList from './ItemList';
-import stock from "./../firebase/firebase";
-
+import db from "../firebase/firebase";
 
 
 const ItemListContainer = () => {
@@ -17,7 +16,7 @@ const ItemListContainer = () => {
 
     
     useEffect( () => {
-        const productsCollection = collection(stock, 'products');
+        const productsCollection = collection(db, 'products');
         const categoryQuery = categoryId && query(productsCollection, where("category", "==", categoryId));
          
         getDocs(categoryId ? categoryQuery : productsCollection)
@@ -40,4 +39,4 @@ const ItemListContainer = () => {
     )
 }
 
-export default ItemListContainer
+export default ItemListContainer;
