@@ -1,44 +1,30 @@
-import React from "react";
+import React from 'react';
 import '../App.css';
-import '../stock/stock'
-import Counter from './ItemCount'
-import { BagContext } from "../context/BagContext";
-import { useContext, useState } from 'react';
 import { Link } from 'react-router-dom';
-const ItemDetail = ({item}) => {
-    
-    const {title, price, image, description} = item;
+import ItemCount from './ItemCount';
 
-    const { addProductToCart } = useContext(BagContext)
 
-    const [quantitySelected, setQuantitySelected] = useState(false)
+const ItemDetail = ({ data }) => {
 
-    const itemsAdded = (count) => {
-        addProductToCart({...item, quantity: count});
-        setQuantitySelected(true);
-    }
-
+    const { nombre, precio, img, color, talle } = data;
 
     return (
         <div className="itemDetail">
             <div>
-                <img src={`/Imagenes/${image}`} className="cover" alt="loading..." />
+                <img src={img} className="shoe" alt="img product" />
             </div>
 
             <div className="details">
-                <h2>{title}</h2>
-                <p className="description">{description}</p>
-                <span>Precio: {price} $ ARS</span>
-                {
-                    !quantitySelected ? <Counter onAdd={itemsAdded} stock={10} productData={item}/> : <Link to="/bag"><button className="botonCompra"></button></Link>
-                }
+                <h2>{nombre}</h2>
+                <h3>{color}</h3>
+                <h3>{talle}</h3>
+                <span>$ARS {precio} </span>
+                <ItemCount data={data} /> 
+                <Link to="/cart"><button className="purchaseButton">FINISH PURCHASE</button></Link>
             </div>
-            
+
         </div>
     );
-
-
-
 }
 
 export default ItemDetail;

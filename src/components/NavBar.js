@@ -1,13 +1,13 @@
 import React, { useContext } from "react";
 import "../App.css";
-import BagWidget from "./BagWidget";
+import CartWidget from "./CartWidget";
 import Logo from "./Logo";
 import { Link } from 'react-router-dom';
-import { BagContext } from "../context/BagContext";
+import { CartContext } from "../context/CartContext";
 
 function NavBar () {
 
-    const { products } = useContext(BagContext);
+    const { totalProdenCarrito } = useContext(CartContext);
 
     return (
         <div className="header">
@@ -19,7 +19,7 @@ function NavBar () {
                     <li><Link to="/">Home</Link></li>
                     <li><Link to="/productos">Productos</Link></li>
                     <li><Link to="/contacto">Contacto</Link></li>
-                    <li><Link to="/bag"><BagWidget products={products}/></Link></li>
+                    <li><Link to="/cart"><CartWidget products={totalProdenCarrito}/></Link></li>
                 </ul>
             </div>
         </div>

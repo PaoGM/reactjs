@@ -1,31 +1,33 @@
 import NavBar from './components/NavBar'
 import Home from './pages/Home';
-import Detail from './pages/Detail';
+import Contacto from './pages/Contacto';
 import Error from './pages/Error';
-import Bag from './pages/Bag';
-import ItemListContainer from './components/ItemListContainer';
+import Cart from './pages/Cart';
 import Footer from './components/Footer'
 import './App.css';
-import { BrowserRouter, Routes, Route  } from 'react-router-dom';
-import BagProvider from './context/BagContext';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import CartProvider from './context/CartContext';
+import ItemDetailContainer from './components/ItemDetailContainer';
+import ItemListContainer from './components/ItemListContainer'
 
-function App () {
+function App() {
   return (
-    <BagProvider>
-    <BrowserRouter>
-      <div className="App">
-        <NavBar />
+    <CartProvider>
+      <BrowserRouter>
+        <div className="App">
+          <NavBar />
           <Routes>
-              <Route path="/" element={<Home/>}/>
-              <Route path="/productos" element={<ItemListContainer/>}/>
-              <Route path="/productos/:id" element={<Detail/>}/>
-              <Route path="/bag" element={<Bag/>}/>
-              <Route path="*" element={<Error/>}/>
+            <Route path="/" element={<Home />} />
+            <Route path="/productos" element={<ItemListContainer/>} />
+            <Route path="/:productos/:id" element={<ItemDetailContainer/>} />
+            <Route path="/cart" element={<Cart />} />
+            <Route path="/contacto" element={<Contacto />} />
+            <Route path="*" element={<Error />} />
           </Routes>
-        <Footer />
-      </div>
-    </BrowserRouter>
-    </BagProvider>
+          <Footer />
+        </div>
+      </BrowserRouter>
+    </CartProvider>
   );
 }
 

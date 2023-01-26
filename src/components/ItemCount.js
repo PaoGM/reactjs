@@ -4,11 +4,12 @@ import AddIcon from '@mui/icons-material/Add';
 import { Remove } from '@mui/icons-material';
 
 
-function ItemCount({ stock, onAdd,  productData }){
+const ItemCount = (props) => {
 
     const [productCounter, setProductCounter] = useState(1);
 
-    const [productStock, setProductStock] = useState(stock);
+    const [productStock, setProductStock] = useState(props.data?.stock);
+    
 
     const addItem = (e) => {
         productCounter < productStock ? setProductCounter( productCounter + 1) :
@@ -22,7 +23,6 @@ function ItemCount({ stock, onAdd,  productData }){
 
     const addToCart = () => {
         if (productStock > 0) {
-            onAdd(productCounter);
             setProductStock(productStock - productCounter);
             setProductCounter(1);
         } 
@@ -30,11 +30,10 @@ function ItemCount({ stock, onAdd,  productData }){
 
     return (
         <div className='productStock'>
-                <p>Stock: {productStock}</p>
                 <div className='counterProduct'>
-                    <Remove className="minus" onClick={removeItem} />
+                    <button onClick={removeItem} ><Remove className="minus"/></button>
                     <p>{productCounter}</p>
-                    <AddIcon className="plus" onClick={addItem} />
+                    <button onClick={addItem}><AddIcon className="plus"/></button>
                 </div>
                 
                 <button className="button-cart" onClick={addToCart}>Agregar al carrito</button>
@@ -44,3 +43,6 @@ function ItemCount({ stock, onAdd,  productData }){
 }
 
 export default ItemCount;
+
+
+
