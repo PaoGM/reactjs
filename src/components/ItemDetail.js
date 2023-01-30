@@ -4,9 +4,9 @@ import { Link } from 'react-router-dom';
 import ItemCount from './ItemCount';
 
 
-const ItemDetail = ({ data }) => {
+const ItemDetail = ({item}) => {
 
-    const { nombre, precio, img, color, talle } = data;
+    const { nombre, precio, img, color, talle } = item;
 
     return (
         <div className="itemDetail">
@@ -19,8 +19,8 @@ const ItemDetail = ({ data }) => {
                 <h3>{color}</h3>
                 <h3>{talle}</h3>
                 <span>$ARS {precio} </span>
-                <ItemCount data={data} /> 
-                <Link to="/cart"><button className="purchaseButton">FINISH PURCHASE</button></Link>
+                <ItemCount data={item} /> 
+                <Link to="/cart"><button className="botonCompra">Terminar Compra</button></Link>
             </div>
 
         </div>

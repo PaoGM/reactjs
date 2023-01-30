@@ -185,6 +185,7 @@ body {
 .social {
   display: flex;
   justify-content: center;
+  margin-left: 350px;
 }
 .social .redes {
   width: 30%;

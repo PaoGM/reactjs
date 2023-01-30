@@ -19,7 +19,7 @@ const ItemDetailContainer = () => {
             product.id = result.id;
             setItem(product);
         })
-    }, [id]);
+    }, []);
 
 
     return(
