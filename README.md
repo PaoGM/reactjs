@@ -8,7 +8,7 @@ ENERO 2023
 
 DEV: Gonzalez Malica, Noelia Paola
 
-Proyecto en servidor >> (reactjs-sorellacalzados-npgm.netlify.app)
+Proyecto en servidor >> (https://reactjs-ebon.vercel.app)
 
 
 
