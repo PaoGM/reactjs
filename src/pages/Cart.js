@@ -95,7 +95,7 @@ const Checkout = () => {
                         </div>
 
                         <h3>Total: ${getTotalPrice()}</h3>
-
+                        <button onClick={() => clear()}>Vaciar carrito</button>
                         <button onClick={() => setShowModal(true)}>Pagar</button>
             </div>
 
