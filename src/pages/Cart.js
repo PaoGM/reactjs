@@ -9,7 +9,7 @@ import Modal from '../components/Modal/Modal';
 
 const Checkout = () => {
 
-    const { products, removeProduct, clear, getTotalPrice } = useContext(CartContext);
+    const { products, productsQuantity, removeProduct, clear, getTotalPrice } = useContext(CartContext);
 
     const [showModal, setShowModal] = useState(false);
 
@@ -79,7 +79,7 @@ const Checkout = () => {
            <div className="cart">
                         <h2>Tu compra</h2>
                         <div>
-                            {products.map(product => (
+                            {products.map(product  => (
                                 <div key={product.id} className="cartProductCard">
                                     <img src={product.img} alt="Product" />
                                     <div className="cartProductInfo">

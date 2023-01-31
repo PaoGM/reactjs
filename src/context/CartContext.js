@@ -4,27 +4,27 @@ const CartContext = createContext();
 
 const productFromLocalStorage = JSON.parse(localStorage.getItem("products") || "[]");
 
-const CartProvider = ({children}) => {
+const CartProvider = ({ children }) => {
 
     const [products, setProducts] = useState(productFromLocalStorage);
     const [productsQuantity, setProductsQuantity] = useState(0);
 
     const getProductsQuantity = () => {
         let quantity = 0;
-        products.forEach( product => {
+        products.forEach(product => {
             quantity += product.quantity
         });
         setProductsQuantity(quantity);
     }
 
-    useEffect( () => {
+    useEffect(() => {
         getProductsQuantity();
         localStorage.setItem("products", JSON.stringify(products));
     }, [products]);
 
     const addProductToCart = (product) => {
         if (isInCart(product.id)) {
-            const found = products.find( prod => prod.id === product.id);
+            const found = products.find(prod => prod.id === product.id);
             const foundProductIndex = products.indexOf(found);
             const auxProducts = [...products];
             auxProducts[foundProductIndex].quantity += product.quantity;
@@ -35,9 +35,10 @@ const CartProvider = ({children}) => {
     }
 
     const removeProduct = (id) => {
-        setProducts(products.filter( product => product.id !== id ) );
+        setProducts(products.filter(product => product.id !== id));
         setProductsQuantity();
     }
+
 
     const clear = () => {
         setProducts([]);
@@ -45,12 +46,12 @@ const CartProvider = ({children}) => {
     }
 
     const isInCart = (id) => {
-        return products.some( product => product.id === id );
+        return products.some(product => product.id === id);
     }
 
     const getTotalPrice = () => {
         let total = 0;
-        products.forEach( product => {
+        products.forEach(product => {
             total += (product.precio * product.quantity);
         })
         return total;
@@ -65,7 +66,7 @@ const CartProvider = ({children}) => {
         getTotalPrice
     }
 
-    return(
+    return (
         <CartContext.Provider value={data}>
             {children}
         </CartContext.Provider>
