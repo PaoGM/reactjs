@@ -1,6 +1,4 @@
-import React from "react";
-import '../App.css';
-import Item from './Item'
+import Item from "../Item/Item"
 
 const ItemList = ({dataProducts}) => {
     return(
@@ -12,4 +10,4 @@ const ItemList = ({dataProducts}) => {
     )
 }
 
-export default ItemList;
+export default ItemList

@@ -1,32 +1,38 @@
-import NavBar from './components/NavBar'
+import './App.css'; 
+import ItemListContainer from './components/ItemListContainer/ItemListContainer';
+import NavBar from './components/NavBar/NavBar';
+import {BrowserRouter, Routes, Route} from 'react-router-dom';
+import { ToastContainer} from 'react-toastify';
 import Home from './pages/Home';
-import Contacto from './pages/Contacto';
+import Footer from './components/Footer/Footer';
+import Detail from './pages/Detail';
 import Error from './pages/Error';
-import Cart from './pages/Cart';
-import Footer from './components/Footer'
-import './App.css';
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import Checkout from './pages/Cart';
+import Contacto from './pages/Contacto';
 import CartProvider from './context/CartContext';
-import ItemDetailContainer from './components/ItemDetailContainer';
-import ItemListContainer from './components/ItemListContainer'
+
 
 function App() {
+
   return (
     <CartProvider>
-      <BrowserRouter>
-        <div className="App">
-          <NavBar />
-          <Routes>
-            <Route path="/" element={<Home />} />
+    <BrowserRouter>
+      <div className="App">
+      <div className="contentWrap">
+        <NavBar />
+        <Routes>
+          <Route path="/" element={<Home />} />
             <Route path="/productos" element={<ItemListContainer/>} />
-            <Route path="/:productos/:id" element={<ItemDetailContainer/>} />
-            <Route path="/cart" element={<Cart />} />
+            <Route path="/:productos/:id" element={<Detail/>} />
+            <Route path="/cart" element={<Checkout />} />
             <Route path="/contacto" element={<Contacto />} />
             <Route path="*" element={<Error />} />
-          </Routes>
-          <Footer />
-        </div>
-      </BrowserRouter>
+        </Routes>
+    </div>
+    <Footer />
+    </div>
+    <ToastContainer />
+    </BrowserRouter>
     </CartProvider>
   );
 }
