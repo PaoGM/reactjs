@@ -112,7 +112,7 @@ const Checkout = () => {
                             <input type="text" name="name" id="email" />
                             <label htmlFor="name">Ingresa tu numero de telefono</label>
                             <input type="text" name="name" id="phone" />
-                            <button onClick={finishPurchase}>Complete purchase</button>
+                            <button onClick={finishPurchase}>Completar Compra</button>
                         </div>
 
                         )}
